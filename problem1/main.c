@@ -8,6 +8,8 @@
 #define LOG(...)
 #endif
 
+/* Prueba */
+
 struct array
 {
     int *pdata;
