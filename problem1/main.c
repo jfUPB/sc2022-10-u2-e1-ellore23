@@ -8,7 +8,6 @@
 #define LOG(...)
 #endif
 
-/* Prueba */
 
 struct array
 {
@@ -38,10 +37,22 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
+    /*Numero de datos*/
+    int a;
+    scanf("%d", &a);
     
+    typedef char cadenaCaracteres [50]; 
+    cadenaCaracteres arrayInput[a];
+
+ for(int x=0;x<a;x++){
+    /*Digite datos*/
+    scanf("%s",arrayInput[x]);
+   }
+
+
 }
 
-void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
+void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     
 }
