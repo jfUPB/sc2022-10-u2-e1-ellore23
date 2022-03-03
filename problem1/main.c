@@ -37,18 +37,16 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    /*Numero de datos*/
-    int a;
-    scanf("%d", &a);
+    /*Numero de datos*/ 
+    char inputUsuario[30];
+    char inputDatos[15];
     
-    typedef char cadenaCaracteres [50]; 
-    cadenaCaracteres arrayInput[a];
+    if(fgets(inputUsuario, 3, stdin)!= NULL){
+        inputUsuario[strlen(inputUsuario)-1]=0;
+        int cnv= sscanf(inputUsuario,"%d", &parr->size);
 
- for(int x=0;x<a;x++){
-    /*Digite datos*/
-    scanf("%s",arrayInput[x]);
-   }
-
+        //Leo y convierto datos (hasta aqui bien)
+    }
 
 }
 
