@@ -60,6 +60,13 @@ void getArray(struct array *parr)
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
+    for(int a=0;a<arrIn1->size;a++){
+        for(int b=0;b<arrIn2->size;b++){
+            
+            }
+
+    }
+
     
 }
 
