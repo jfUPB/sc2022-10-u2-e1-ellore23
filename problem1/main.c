@@ -63,8 +63,6 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     arrOut->size = 0;
     int sizeArrF =0;
 
-    for(int a=0;a<arrIn1->size;a++){
-        for(int b=0;b<arrIn2->size;b++){       
             if(arrIn1->size>arrIn2->size){
                 sizeArrF = arrIn1->size;
             }
@@ -74,6 +72,12 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
             else{
                 sizeArrF = arrIn1->size;
             }
+            
+
+    for(int a=0;a<arrIn1->size;a++){
+        for(int b=0;b<arrIn2->size;b++){       
+           
+            
 
         }
 
