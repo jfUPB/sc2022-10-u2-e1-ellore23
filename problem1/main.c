@@ -41,7 +41,7 @@ void getArray(struct array *parr)
     char inputUsuario[16];
     char inputDatos[16];
 
-    if(fgets(entry, 5, stdin) != NULL)
+    if(fgets(inputUsuario, 5, stdin) != NULL)
     {
         inputUsuario[strlen(inputUsuario) -1 ] = 0;
 
@@ -65,25 +65,25 @@ void getArray(struct array *parr)
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
-    int sizeArr3;
-    arrOut->size = 0;
+    int size;
+    
 
     if(arrIn1->size>arrIn2->size)
     {
-        sizeArr3 = arrIn1->size;
+        size = arrIn1->size;
     }
     else if(arrIn2->size>arrIn1->size)
     {
-        sizeArr3 = arrIn2->size;
+        size = arrIn2->size;
     }
     else if (arrIn2->size == arrIn1->size)
     {
-        sizeArr3 = arrIn2->size;
+        size = arrIn2->size;
     }
     
 
-    int iguales[sizeArr3];
-    for (int i = 0; i < sizeArr3; i++){
+    int iguales[size];
+    for (int i = 0; i < size; i++){
         iguales[i]=-1;
     }
 
@@ -96,10 +96,10 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
             if(arrIn1->pdata[i]==arrIn2->pdata[j])
             {
                 int boolean = 0;
-                for (int k = 0; k < sizeArr3; k++){
+                for (int k = 0; k < size; k++){
                     if(arrIn1->pdata[i] == iguales[k])
                     {
-                        k = sizeArr3;
+                        k = size;
                         boolean = 1;
                     }
                 }
