@@ -39,7 +39,7 @@ void getArray(struct array *parr)
 {
     /*Numero de datos*/ 
     char inputUsuario[30];
-    char inputDatos[15];
+    char inputDatos[30];
     
     if(fgets(inputUsuario, 6, stdin)!= NULL){
         inputUsuario[strlen(inputUsuario)-1]=0;
