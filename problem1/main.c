@@ -61,7 +61,6 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     arrOut->size = 0;
-    int cont = 0;
     int sizeArrF =0;
     int presize[sizeArrF];
 
@@ -71,7 +70,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     else if(arrIn1->size<arrIn2->size){
     sizeArrF = arrIn2->size;
     }
-    else{
+    else if{
     sizeArrF = arrIn1->size;
     }
   
@@ -87,7 +86,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
            if(arrIn1->pdata[a] == arrIn2->pdata[b]){ 
                int cambio = 0;
                for(int c = 0; c< sizeArrF; c++){
-                   if(arrIn1->pdata[a] == presize[b]){
+                   if(arrIn1->pdata[a] == presize[c]){
                        c=sizeArrF;
                        cambio=1;
                    }
