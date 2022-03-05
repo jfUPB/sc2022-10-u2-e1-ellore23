@@ -61,7 +61,9 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     arrOut->size = 0;
+    int cont = 0;
     int sizeArrF =0;
+    int presize[sizeArrF];
 
             if(arrIn1->size>arrIn2->size){
                 sizeArrF = arrIn1->size;
@@ -72,14 +74,37 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
             else{
                 sizeArrF = arrIn1->size;
             }
+
             
+            for(int i=0;i<sizeArrF;i++){
+                presize[i]=-1;
+             }
+            
+    
 
     for(int a=0;a<arrIn1->size;a++){
-        for(int b=0;b<arrIn2->size;b++){       
-           /*GUARDAR DATOS COMPARADOS EN UN ARREGLO PREVIO AL FINAL*/
+        for(int b=0;b<arrIn2->size;b++){                
+           if(arrIn1->pdata[a] == arrIn2->pdata[b]){ 
+               int cambio = 0;
+               for(int c = 0; c< sizeArrF; c++){
+                   if(arrIn1->pdata[a] == presize[b]){
+                       c=sizeArrF;
+                       cambio=1;
+                   }
+                if(cambio == 0){
+                    presize[cont] = arrIn2->pdata[b];
+                    cont++;
+                    arrOut->size++;
+                }
+           }
         }
-
     }
+    arrOut->pdata = malloc(sizeof(int)*arrOut->size);
+
+    for(int a=0; a< arrOut->size; a++){
+        *(arrOut->pdata +a) = presize[a];
+    }
+
 
     
 }
