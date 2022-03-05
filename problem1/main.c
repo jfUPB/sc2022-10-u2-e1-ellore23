@@ -66,7 +66,12 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     int size;
-    
+    arrOut->size = 0;
+
+    int iguales[size];
+    for (int i = 0; i < size; i++){
+        iguales[i]=-1;
+    }
 
     if(arrIn1->size>arrIn2->size)
     {
@@ -82,10 +87,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     }
     
 
-    int iguales[size];
-    for (int i = 0; i < size; i++){
-        iguales[i]=-1;
-    }
+    
 
     
 
