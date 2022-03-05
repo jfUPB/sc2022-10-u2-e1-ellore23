@@ -71,8 +71,8 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     else if(arrIn1->size<arrIn2->size){
     sizeArrF = arrIn2->size;
     }
-    else if{
-    sizeArrF = arrIn1->size;
+    else if(arrIn1->size == arrIn2->size){
+    sizeArrF = arrIn2->size;
     }
     
     int presize[sizeArrF];
@@ -100,6 +100,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
            }
         }
     }
+
     arrOut->pdata = malloc(sizeof(int)*arrOut->sizeArrF);
 
     for(int a=0; a< arrOut->sizeArrF; a++){
