@@ -65,20 +65,20 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     int sizeArrF =0;
     int presize[sizeArrF];
 
-            if(arrIn1->size>arrIn2->size){
-                sizeArrF = arrIn1->size;
-            }
-            else if(arrIn1->size<arrIn2->size){
-                sizeArrF = arrIn2->size;
-            }
-            else{
-                sizeArrF = arrIn1->size;
-            }
-
-            
-            for(int i=0;i<sizeArrF;i++){
-                presize[i]=-1;
-             }
+    if(arrIn1->size>arrIn2->size){
+        sizeArrF = arrIn1->size;
+    }
+    else if(arrIn1->size<arrIn2->size){
+    sizeArrF = arrIn2->size;
+    }
+    else{
+    sizeArrF = arrIn1->size;
+    }
+  
+    for(int i=0;i<sizeArrF;i++){
+    presize[i]=-1;
+    } 
+    /*codigo pa almacenar de una vez el tamanho*/
             
     
 
@@ -91,17 +91,17 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
                        c=sizeArrF;
                        cambio=1;
                    }
-                if(cambio == 0){
+                   else if(cambio == 0){
                     presize[cont] = arrIn2->pdata[b];
                     cont++;
                     arrOut->size++;
-                }
+                   }
            }
         }
     }
-    arrOut->pdata = malloc(sizeof(int)*arrOut->size);
+    arrOut->pdata = malloc(sizeof(int)*arrOut->sizeArrF);
 
-    for(int a=0; a< arrOut->size; a++){
+    for(int a=0; a< arrOut->sizeArrF; a++){
         *(arrOut->pdata +a) = presize[a];
     }
 
