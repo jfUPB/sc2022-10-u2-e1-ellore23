@@ -38,10 +38,10 @@ void printArray(struct array *parr)
 void getArray(struct array *parr)
 {
     /*Numero de datos*/ 
-    char inputUsuario[30];
-    char inputDatos[30];
+    char inputUsuario[16];
+    char inputDatos[16];
     
-    if(fgets(inputUsuario, 6, stdin)!= NULL){
+    if(fgets(inputUsuario, 5, stdin)!= NULL){
         inputUsuario[strlen(inputUsuario)-1]=0;
         int cnv= sscanf(inputUsuario,"%d", &parr->size);
         parr->pdata = malloc(sizeof(int)*parr->size);
@@ -49,7 +49,7 @@ void getArray(struct array *parr)
         
         /*Leo y convierto datos (hasta aqui bien)*/
         for(int i=0;i<parr->size;i++){
-            if (fgets(inputDatos,6, stdin) != NULL)
+            if (fgets(inputDatos,5, stdin) != NULL)
             {
                 int cnv2 = sscanf(inputDatos, "%d", parr->pdata+i);
             }
@@ -60,8 +60,9 @@ void getArray(struct array *parr)
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
-    arrOut->size = 0;
+    
     int sizeArrF;
+    arrOut->size = 0;
     
     
 
