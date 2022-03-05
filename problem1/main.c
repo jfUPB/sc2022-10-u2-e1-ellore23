@@ -40,16 +40,16 @@ void getArray(struct array *parr)
     /*Numero de datos*/ 
     char inputUsuario[30];
     
-    if(fgets(inputUsuario, 3, stdin)!= NULL){
+    if(fgets(inputUsuario, 6, stdin)!= NULL){
         inputUsuario[strlen(inputUsuario)-1]=0;
         int cnv= sscanf(inputUsuario,"%d", &parr->size);
         parr->pdata = malloc(sizeof(int)*parr->size);
 
 
         /*Leo y convierto datos (hasta aqui bien)*/
-        for(int a=0;a<parr->pdata;a++){
+        for(int i=0;i<parr->pdata;i++){
             char inputDatos[15];
-            if (fgets(inputDatos,3, stdin) != NULL)
+            if (fgets(inputDatos,6, stdin) != NULL)
             {
                 int cnv2 = sscanf(inputDatos, "%d", parr->pdata+i);
             }
