@@ -39,13 +39,14 @@ void getArray(struct array *parr)
 {
     /*Numero de datos*/ 
     char inputUsuario[30];
+    char inputDatos[15];
     
     if(fgets(inputUsuario, 6, stdin)!= NULL){
         inputUsuario[strlen(inputUsuario)-1]=0;
         int cnv= sscanf(inputUsuario,"%d", &parr->size);
         parr->pdata = malloc(sizeof(int)*parr->size);
 
-        char inputDatos[15];
+        
         /*Leo y convierto datos (hasta aqui bien)*/
         for(int i=0;i<parr->size;i++){
             if (fgets(inputDatos,6, stdin) != NULL)
@@ -60,9 +61,9 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     arrOut->size = 0;
-    int sizeArrF =0;
-    int cont = 0;
-    int presize[sizeArrF];
+    int sizeArrF;
+    
+    
 
     if(arrIn1->size>arrIn2->size){
         sizeArrF = arrIn1->size;
@@ -73,13 +74,15 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     else if{
     sizeArrF = arrIn1->size;
     }
+    
+    int presize[sizeArrF];
   
     for(int i=0;i<sizeArrF;i++){
     presize[i]=-1;
     } 
     /*codigo pa almacenar de una vez el tamanho*/
             
-    
+    int cont = 0;
     for(int a=0;a<arrIn1->size;a++){
         for(int b=0;b<arrIn2->size;b++){                
            if(arrIn1->pdata[a] == arrIn2->pdata[b]){ 
@@ -89,10 +92,10 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
                        c=sizeArrF;
                        cambio=1;
                    }
-                   else if(cambio == 0){
+                   if(cambio == 0){
                     presize[cont] = arrIn2->pdata[b];
                     cont++;
-                    arrOut->size++;
+                    arrOut->size ++;
                    }
            }
         }
