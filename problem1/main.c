@@ -40,74 +40,85 @@ void getArray(struct array *parr)
     /*Numero de datos*/ 
     char inputUsuario[16];
     char inputDatos[16];
-    
-    if(fgets(inputUsuario, 5, stdin)!= NULL){
-        inputUsuario[strlen(inputUsuario)-1]=0;
-        int cnv= sscanf(inputUsuario,"%d", &parr->size);
+
+    if(fgets(entry, 5, stdin) != NULL)
+    {
+        inputUsuario[strlen(inputUsuario) -1 ] = 0;
+
+        int cnv = sscanf(inputUsuario,"%d",&parr->size);
+
+
         parr->pdata = malloc(sizeof(int)*parr->size);
 
-        
-        /*Leo y convierto datos (hasta aqui bien)*/
-        for(int i=0;i<parr->size;i++){
-            if (fgets(inputDatos,5, stdin) != NULL)
+
+        for(int i = 0;i<parr->size;i++){
+            if(fgets(inputDatos, 5, stdin) != NULL)
             {
-                int cnv2 = sscanf(inputDatos, "%d", parr->pdata+i);
+                int cambio2 = sscanf(inputDatos,"%d",parr->pdata + i);
             }
         }
     }
+
+
 
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
-    
-    int sizeArrF;
+    int sizeArr3;
     arrOut->size = 0;
-    
+
+    if(arrIn1->size>arrIn2->size)
+    {
+        sizeArr3 = arrIn1->size;
+    }
+    else if(arrIn2->size>arrIn1->size)
+    {
+        sizeArr3 = arrIn2->size;
+    }
+    else if (arrIn2->size == arrIn1->size)
+    {
+        sizeArr3 = arrIn2->size;
+    }
     
 
-    if(arrIn1->size>arrIn2->size){
-        sizeArrF = arrIn1->size;
+    int iguales[sizeArr3];
+    for (int i = 0; i < sizeArr3; i++){
+        iguales[i]=-1;
     }
-    else if(arrIn1->size<arrIn2->size){
-    sizeArrF = arrIn2->size;
-    }
-    else if(arrIn1->size == arrIn2->size){
-    sizeArrF = arrIn2->size;
-    }
+
     
-    int presize[sizeArrF];
-  
-    for(int i=0;i<sizeArrF;i++){
-    presize[i]=-1;
-    } 
-    /*codigo pa almacenar de una vez el tamanho*/
-            
-    int cont = 0;
-    for(int a=0;a<arrIn1->size;a++){
-        for(int b=0;b<arrIn2->size;b++){                
-           if(arrIn1->pdata[a] == arrIn2->pdata[b]){ 
-               int cambio = 0;
-               for(int c = 0; c< sizeArrF; c++){
-                   if(arrIn1->pdata[a] == presize[c]){
-                       c=sizeArrF;
-                       cambio=1;
-                   }
-                   if(cambio == 0){
-                    presize[cont] = arrIn2->pdata[b];
-                    cont++;
+
+    int contador=0;
+
+    for(int i=0; i<arrIn1->size;i++){
+        for(int j=0; j<arrIn2->size;j++){
+            if(arrIn1->pdata[i]==arrIn2->pdata[j])
+            {
+                int boolean = 0;
+                for (int k = 0; k < sizeArr3; k++){
+                    if(arrIn1->pdata[i] == iguales[k])
+                    {
+                        k = sizeArr3;
+                        boolean = 1;
+                    }
+                }
+                if (boolean == 0)
+                {
+                    iguales[contador] = arrIn2->pdata[j];
+                    contador++;
                     arrOut->size ++;
-                   }
-           }
+                }
+            }
         }
+    }  
+    
+    arrOut->pdata = malloc(sizeof(int)*arrOut->size); 
+
+    for (int i = 0; i < arrOut->size; i++)
+    {
+        *(arrOut->pdata+i) = iguales[i];
     }
-
-    arrOut->pdata = malloc(sizeof(int)*arrOut->sizeArrF);
-
-    for(int a=0; a< arrOut->sizeArrF; a++){
-        *(arrOut->pdata +a) = presize[a];
-    }
-
 
     
 }
