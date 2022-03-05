@@ -62,6 +62,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     arrOut->size = 0;
     int sizeArrF =0;
+    int cont = 0;
     int presize[sizeArrF];
 
     if(arrIn1->size>arrIn2->size){
@@ -80,7 +81,6 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     /*codigo pa almacenar de una vez el tamanho*/
             
     
-
     for(int a=0;a<arrIn1->size;a++){
         for(int b=0;b<arrIn2->size;b++){                
            if(arrIn1->pdata[a] == arrIn2->pdata[b]){ 
