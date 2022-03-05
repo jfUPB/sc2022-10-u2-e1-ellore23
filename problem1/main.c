@@ -45,10 +45,9 @@ void getArray(struct array *parr)
         int cnv= sscanf(inputUsuario,"%d", &parr->size);
         parr->pdata = malloc(sizeof(int)*parr->size);
 
-
+        char inputDatos[15];
         /*Leo y convierto datos (hasta aqui bien)*/
-        for(int i=0;i<parr->pdata;i++){
-            char inputDatos[15];
+        for(int i=0;i<parr->size;i++){
             if (fgets(inputDatos,6, stdin) != NULL)
             {
                 int cnv2 = sscanf(inputDatos, "%d", parr->pdata+i);
