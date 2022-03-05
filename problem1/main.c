@@ -66,7 +66,7 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
     int size;
-    arrOut->size = 0;
+    arr3->size = 0;
 
     int iguales[size];
     for (int i = 0; i < size; i++){
@@ -85,11 +85,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
     {
         size = arrIn2->size;
     }
-    
-
-    
-
-    
+        
 
     int contador=0;
 
@@ -115,11 +111,11 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
         }
     }  
     
-    arrOut->pdata = malloc(sizeof(int)*arrOut->size); 
+    arr3->pdata = malloc(sizeof(int)*arr3->size); 
 
-    for (int i = 0; i < arrOut->size; i++)
+    for (int i = 0; i < arr3->size; i++)
     {
-        *(arrOut->pdata+i) = iguales[i];
+        *(arr3->pdata+i) = iguales[i];
     }
 
     
