@@ -105,7 +105,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
                 {
                     iguales[contador] = arrIn2->pdata[j];
                     contador++;
-                    arrOut->size ++;
+                    arr3->size ++;
                 }
             }
         }
