@@ -5,8 +5,9 @@
 #ifdef DOLOG
 #define LOG(...) fprintf(log, __VA_ARGS__);
 #else
-#define LOG(...)
+#define LOG(...)1
 #endif
+
 
 struct array
 {
@@ -36,11 +37,82 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    
+    /*Numero de datos*/ 
+    char inputUsuario[16];
+    char inputDatos[16];
+
+    if(fgets(inputUsuario, 5, stdin) != NULL)
+    {
+        inputUsuario[strlen(inputUsuario) -1 ] = 0;
+        int cnv = sscanf(inputUsuario,"%d",&parr->size);
+        parr->pdata = malloc(sizeof(int)*parr->size);
+        for(int i = 0;i<parr->size;i++){
+            if(fgets(inputDatos, 5, stdin) != NULL)
+            {
+                int cnv2 = sscanf(inputDatos,"%d",parr->pdata + i);
+            }
+        }
+    }
+
 }
 
-void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
+void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arr3)
 {
+    int sizeArrf;
+    arr3->size = 0;
+
+    
+
+    if(arrIn1->size>arrIn2->size)
+    {
+        sizeArrf = arrIn1->size;
+    }
+    else if(arrIn2->size>arrIn1->size)
+    {
+        sizeArrf = arrIn2->size;
+    }
+    else if (arrIn2->size == arrIn1->size)
+    {
+        sizeArrf = arrIn2->size;
+    }
+
+    int iguales[sizeArrf];
+    for (int i = 0; i < sizeArrf; i++){
+        iguales[i]=-1;
+    }
+        
+
+    int contador=0;
+
+    for(int i=0; i<arrIn1->size;i++){
+        for(int j=0; j<arrIn2->size;j++){
+            if(arrIn1->pdata[i]==arrIn2->pdata[j])
+            {
+                int cambio = 0;
+                for (int k = 0; k < sizeArrf; k++){
+                    if(arrIn1->pdata[i] == iguales[k])
+                    {
+                        k = sizeArrf;
+                        cambio = 1;
+                    }
+                }
+                if (cambio == 0)
+                {
+                    iguales[contador] = arrIn2->pdata[j];
+                    contador++;
+                    arr3->size ++;
+                }
+            }
+        }
+    }  
+    
+    arr3->pdata = malloc(sizeof(int)*arr3->size); 
+
+    for (int i = 0; i < arr3->size; i++)
+    {
+        *(arr3->pdata+i) = iguales[i];
+    }
+
     
 }
 
